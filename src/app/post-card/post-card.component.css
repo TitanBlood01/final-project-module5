@@ -1,0 +1,27 @@
+.post-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    background-color: #f9f9f9;
+  }
+  
+  .post-card h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .post-card button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .post-card button:hover {
+    background-color: #ff7875;
+  }
+  

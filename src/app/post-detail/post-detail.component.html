@@ -1,0 +1,15 @@
+<div class="post-detail-container">
+    <div *ngIf="error" class="error-message">
+        {{ error }}
+    </div>
+
+    <div *ngIf="loading" class="loading">
+        Cargando...
+    </div>
+
+    <div *ngIf="post && !loading" class="post-content">
+        <h2>{{post.title}}</h2>
+        <p>{{post.content}}</p>
+        <a [routerLink]="['/posts']" class="back-link">Volver a la lista de blogs</a>
+    </div>
+</div>

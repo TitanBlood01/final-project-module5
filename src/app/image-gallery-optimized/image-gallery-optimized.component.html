@@ -1,0 +1,62 @@
+<div class="gallery-container">
+    <h2>{{ title }}</h2>
+    <p class="subtitle">Esta galería implementa técnicas avanzadas de optimización de rendimiento</p>
+    
+    <div class="optimizations-info">
+      <h3>Optimizaciones implementadas:</h3>
+      <ul>
+        <li><strong>Lazy Loading:</strong> Las imágenes se cargan solo cuando están próximas a entrar en el viewport</li>
+        <li><strong>Formato WebP:</strong> Uso de formato de imagen moderno con mejor compresión</li>
+        <li><strong>Elemento Picture:</strong> Proporciona alternativas según compatibilidad del navegador</li>
+        <li><strong>Dimensiones explícitas:</strong> Especificación de width y height para evitar layout shifts</li>
+        <li><strong>Carga diferida:</strong> El componente se carga solo cuando se navega a esta ruta (lazy loading de módulos)</li>
+      </ul>
+    </div>
+  
+    <div class="image-grid">
+      <!-- Imágenes optimizadas con lazy loading, WebP y fallback -->
+      <div *ngFor="let image of images; let i = index" class="image-item">
+        <picture>
+          <!-- Formato WebP para navegadores modernos -->
+          <source [srcset]="image.webp" type="image/webp">
+          <!-- Fallback para navegadores que no soportan WebP -->
+          <source [srcset]="image.jpg" type="image/jpeg"> 
+          <!-- Imagen por defecto con lazy loading y dimensiones explícitas -->
+          <img 
+            [src]="image.jpg" 
+            [width]="image.width" 
+            [height]="image.height"
+            loading="lazy" 
+            alt="Imagen optimizada {{i+1}}" 
+            class="gallery-image">
+        </picture>
+        <div class="image-caption">Imagen optimizada {{i+1}}</div>
+      </div>
+    </div>
+  
+    <div class="performance-comparison">
+      <h3>Resultados esperados en Lighthouse:</h3>
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-title">First Contentful Paint</span>
+          <span class="metric-improvement">↓ -30%</span>
+        </div>
+        <div class="metric">
+          <span class="metric-title">Largest Contentful Paint</span>
+          <span class="metric-improvement">↓ -50%</span>
+        </div>
+        <div class="metric">
+          <span class="metric-title">Cumulative Layout Shift</span>
+          <span class="metric-improvement">↓ -90%</span>
+        </div>
+        <div class="metric">
+          <span class="metric-title">Total Blocking Time</span>
+          <span class="metric-improvement">↓ -20%</span>
+        </div>
+        <div class="metric">
+          <span class="metric-title">Performance Score</span>
+          <span class="metric-improvement">↑ +30 pts</span>
+        </div>
+      </div>
+    </div>
+  </div>

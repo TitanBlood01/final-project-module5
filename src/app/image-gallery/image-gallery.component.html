@@ -1,0 +1,22 @@
+<div class="gallery-container">
+    <h2>{{ title }}</h2>
+    <p class="subtitle">Esta galería muestra imágenes sin optimización de rendimiento</p>
+    
+    <div class="image-grid">
+      <!-- Imágenes sin lazy loading -->
+      <div *ngFor="let image of images" class="image-item">
+        <img [src]="image" alt="Imagen de blog" class="gallery-image">
+        <div class="image-caption">Imagen para blog</div>
+      </div>
+    </div>
+  
+    <div class="info-box">
+      <h3>Características de esta galería:</h3>
+      <ul>
+        <li>Imágenes cargadas normalmente (sin lazy loading)</li>
+        <li>Sin especificación de dimensiones</li>
+        <li>Formato de imagen JPEG tradicional</li>
+        <li>Sin uso de técnicas de optimización</li>
+      </ul>
+    </div>
+  </div>

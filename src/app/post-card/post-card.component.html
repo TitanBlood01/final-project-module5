@@ -1,0 +1,9 @@
+<div class="post-card">
+    <h2>{{ postData.title }}</h2>
+    <p>{{ postData.content }}</p>
+    <a [routerLink]="['/post', postData.id]">
+        <button class="btn view-btn">Ver Detalles</button>
+    </a>
+    <button (click)="onEdit()">Editar Blog</button>
+    <button (click)="onDelete()">Eliminar</button>
+</div>

@@ -1,0 +1,46 @@
+<h2>Lista de blogs</h2>
+
+<div class="container">
+    <div *ngIf="error" class="error-message">
+        {{error}}
+    </div>
+
+    <div class="new-post-form">
+        <h3>Crear nuevo Blog</h3>
+        <input type="text" [(ngModel)]="newPostTitle" placeholder="Titulo del blog" [disabled]="loading" />
+        <textarea [(ngModel)]="newPostContent" placeholder="Contenido del blog" [disabled]="loading"></textarea>
+        <button (click)="addPost()" [disabled]="loading">
+            {{loading ? 'añadiendo...' : 'Añadir Blog'}}
+        </button>
+    </div>
+
+    <hr />
+
+    <div class="posts-container">
+        <div *ngFor="let post of posts">
+            <div *ngIf="editandoPostId === post.id" class="edit-form">
+                <input type="text" [(ngModel)]="editTitle" required [disabled]="loading" />
+                <textarea [(ngModel)]="editContent" required [disabled]="loading"></textarea>
+                <div class="button-group">
+                    <button (click)="guardarEdit()" [disabled]="loading">
+                        {{loading ? 'Guardando...' : 'Guardar'}}
+                    </button>
+                    <button (click)="cancelarEdit()" [disabled]="loading">Cancelar</button>
+                </div>
+            </div>
+
+            <app-post-card
+                *ngIf="editandoPostId !== post.id"
+                [postData]="post"
+                (deletePost)="deletePost(post.id)"
+                (editPost)="empezarEdit(post)">
+            </app-post-card>
+        </div>
+
+        <div class="load-more">
+            <button (click)="loadMore()" [disabled]="loading">
+                {{loading ? 'Cargando...' : 'Cargar mas'}}
+            </button>
+        </div>
+    </div>
+</div>
