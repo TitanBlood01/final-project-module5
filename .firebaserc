@@ -1,5 +1,24 @@
 {
   "projects": {
-    "default": "angular-blog-deploy-univallesc"
-  }
+    "dev": "final-project-dev-657a7",
+    "qa": "final-project-qa-3a9bf",
+    "prod": "final-project-prod-f8528"
+  },
+  "targets": {
+    "final-project-prod-f8528": {
+      "hosting": {
+        "dev": [
+          "final-project-dev-657a7"
+        ],
+        "qa": [
+          "final-project-qa-3a9bf"
+        ],
+        "prod": [
+          "final-project-prod-f8528"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
